@@ -17,6 +17,7 @@ pub fn startup(mut commands: Commands, mut materials: ResMut<Assets<ColorMateria
             material: materials.add(Color::WHITE.into()),
             sprite: Sprite {
                 size: Vec2::new(20.0, 20.0),
+                ..Default::default()
             },
             ..Default::default()
         })
@@ -55,9 +56,9 @@ pub fn movement(mut query: Query<(&Ball, &mut Position, &Velocity)>) {
     }
 }
 
-pub fn render(mut query: Query<(&Ball, &Position, &mut Translation)>) {
-    for (_, x, mut tr) in &mut query.iter() {
-        tr.set_x(x.0 * 400.0 - 10.0);
+pub fn render(mut query: Query<(&Ball, &Position, &mut Transform)>) {
+    for (_, x, mut tf) in &mut query.iter() {
+        tf.translation_mut().set_x(x.0 * 400.0 - 10.0);
     }
 }
 
