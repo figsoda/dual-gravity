@@ -1384,9 +1384,9 @@ dependencies = [
 
 [[package]]
 name = "gfx-backend-dx11"
-version = "0.6.11"
+version = "0.6.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0105746c65b502f6629b7e1acc3610a7726a2f8b37229119fb774d48af174dd"
+checksum = "7b44558bb57c3301eff5b4c55f00d6965c98167ff5f0d90e3c4107f7a0968d49"
 dependencies = [
  "arrayvec",
  "bitflags",
@@ -2075,9 +2075,9 @@ dependencies = [
 
 [[package]]
 name = "notify"
-version = "5.0.0-pre.3"
+version = "5.0.0-pre.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77d03607cf88b4b160ba0e9ed425fff3cee3b55ac813f0c685b3a3772da37d0e"
+checksum = "a8b946889dfdad884379cd56367d93b6d0ce8889cc027d26a69a3a31c0a03bb5"
 dependencies = [
  "anymap",
  "bitflags",
