@@ -23,7 +23,7 @@ fn main() {
             resizable: false,
             ..Default::default()
         })
-        .add_default_plugins()
+        .add_plugins(DefaultPlugins)
         .add_resource(ClearColor(Color::BLACK))
         .add_resource(Boost(cfg.boost))
         .add_resource(Gravity(cfg.gravity))

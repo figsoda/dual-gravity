@@ -31,7 +31,7 @@ pub fn boost(
     boost: Res<Boost>,
     mut query: Query<(&Ball, &mut Velocity)>,
 ) {
-    for (_, mut v) in &mut query.iter() {
+    for (_, mut v) in query.iter_mut() {
         match (input.pressed(KeyCode::A), input.pressed(KeyCode::D)) {
             (true, false) => v.0 -= boost.0,
             (false, true) => v.0 += boost.0,
@@ -41,7 +41,7 @@ pub fn boost(
 }
 
 pub fn gravity(g: Res<Gravity>, mut query: Query<(&Ball, &Position, &mut Velocity)>) {
-    for (_, x, mut v) in &mut query.iter() {
+    for (_, x, mut v) in query.iter_mut() {
         let r = x.0 + 1.25;
         v.0 -= g.0 / (r * r);
 
@@ -51,14 +51,14 @@ pub fn gravity(g: Res<Gravity>, mut query: Query<(&Ball, &Position, &mut Velocit
 }
 
 pub fn movement(mut query: Query<(&Ball, &mut Position, &Velocity)>) {
-    for (_, mut x, v) in &mut query.iter() {
+    for (_, mut x, v) in query.iter_mut() {
         x.0 += v.0;
     }
 }
 
 pub fn render(mut query: Query<(&Ball, &Position, &mut Transform)>) {
-    for (_, x, mut tf) in &mut query.iter() {
-        tf.translation_mut().set_x(x.0 * 400.0 - 10.0);
+    for (_, x, mut tf) in query.iter_mut() {
+        tf.translation.set_x(x.0 * 400.0 - 10.0);
     }
 }
 
@@ -67,7 +67,7 @@ pub fn game_over(
     mut exit: ResMut<Events<AppExit>>,
     mut query: Query<(&Ball, &Position)>,
 ) {
-    for (_, x) in &mut query.iter() {
+    for (_, x) in query.iter_mut() {
         if x.0 <= -1.0 || x.0 >= 1.0 {
             println!("{} seconds", time.seconds_since_startup);
             exit.send(AppExit);
