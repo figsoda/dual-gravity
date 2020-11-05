@@ -1,4 +1,4 @@
-# [WIP] Dual gravity
+# Dual gravity
 
 A Simple game made with [bevy engine](https://bevyengine.org)
 
